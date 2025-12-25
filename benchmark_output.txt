@@ -1,0 +1,47 @@
+% mpirun -np 8 ./benchmark.f90 128 128 128 100
+--------------------------------------------------------------------------
+prterun was unable to launch the specified application as it lacked
+permissions to execute an executable:
+
+   Executable: ./benchmark.f90
+   Node: kw-20064
+
+while attempting to start process rank 0.
+--------------------------------------------------------------------------
+aseeris@kw-20064 ~ % mpirun -np 8 ./a.out 128 128 128 100
+ In auto-tuning mode......
+ factors:            1           2           4           8
+ processor grid           1  by            8  time=   3.2035624999999998E-002
+ processor grid           2  by            4  time=   4.6113750000000009E-003
+ processor grid           4  by            2  time=   8.1904999999999999E-003
+ processor grid           8  by            1  time=   4.7446250000000006E-003
+ the best processor grid is probably            2  by            4
+ Padded ALLTOALL optimisation on
+  
+ ***** Using the FFTW (version 3.x) engine *****
+  
+ NLS3D CN benchmark — grid=         128 x         128 x         128  procs=           8  steps=         100
+dt= 5.00000E-03  sigma= 1.00000E+00
+grid,procs,steps,dt,fft_s,nonlinear_s,other_s,total_s
+128x128x128,8,100, 5.00000E-03, 4.50313E-01, 2.70640E-03, 3.82619E-02, 4.91281E-01
+
+XXXXXXXXXXXXXXXXXXX
+
+% mpirun -np 8 ./a.out 256 256 256 100
+ In auto-tuning mode......
+ factors:            1           2           4           8
+ processor grid           1  by            8  time=  0.12132487500000000     
+ processor grid           2  by            4  time=   3.1248874999999995E-002
+ processor grid           4  by            2  time=   3.3011249999999992E-002
+ processor grid           8  by            1  time=   3.9180375000000003E-002
+ the best processor grid is probably            2  by            4
+ Padded ALLTOALL optimisation on
+  
+ ***** Using the FFTW (version 3.x) engine *****
+  
+ NLS3D CN benchmark — grid=         256 x         256 x         256  procs=           8  steps=         100
+dt= 5.00000E-03  sigma= 1.00000E+00
+grid,procs,steps,dt,fft_s,nonlinear_s,other_s,total_s
+256x256x256,8,100, 5.00000E-03, 3.66370E+00, 2.18550E-02, 2.64065E-01, 3.94962E+00
+
+XXXXXXXXXXXXXXXXXXXXXXXX
